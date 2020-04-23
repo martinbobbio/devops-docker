@@ -1,10 +1,8 @@
 <h1 align="center">
   <br>
-  <img src="https://ngrx.io/assets/images/badge.svg" width="200">
+  <img src="https://i.blogs.es/2fc992/docker_logo/450_1000.png" width="200">
   <br><br>
-  <a href="https://martinbobbio.github.io/frontend-ngrx">
-    Frontend - Ngrx Admin
-  </a>
+    Docker - Portfolio
   <br><br>
 </h1>
 
