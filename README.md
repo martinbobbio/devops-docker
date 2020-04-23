@@ -5,8 +5,8 @@
  </div>
 
 ## Descripción
-Gestión de contenedores docker con los principales proyectos y la implementación de los mismos en sus respectivos ambientes con sus conexiones propias entre sí
-<br>
+Gestión de contenedores docker con los principales proyectos y la implementación de los mismos en sus respectivos ambientes con sus conexiones propias entre contenedores.
+<br><br>
 
 ## Contenedores
 
