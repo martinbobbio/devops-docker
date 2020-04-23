@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+    mysql:
+        image: mysql
+        container_name: tennisstar_mysql
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 1234
+        networks:
+            - net
+    backend:
+        container_name: tennisstar_backend
+        build:
+            context: .
+            dockerfile: backend.dockerfile
+        depends_on: 
+            - mysql
+        ports:
+            - "8082:8082"
+        networks:
+            - net
+    frontend:
+        container_name: tennisstar_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "4202:4202"
+        depends_on: 
+            - backend
+        networks:
+            - net
+    app:
+        container_name: tennisstar_app
+        build:
+            context: .
+            dockerfile: app.dockerfile
+        ports:
+            - "8101:8101"
+        depends_on: 
+            - backend
+        networks:
+            - net
+
+networks:
+    net:
+
+# After docker compose up -d run this for create database and superadmin.
+# docker exec -it tennisstar_backend php app/console doctrine:database:create && docker exec -it tennisstar_backend php app/console doctrine:schema:update --force && docker exec -it tennisstar_backend php app/console fos:user:create martinbobbio1@gmail.com martinbobbio1@gmail.com 1234 --super-admin

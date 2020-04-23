@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    backend:
+        container_name: adminpro_backend
+        build:
+            context: .
+            dockerfile: backend.dockerfile
+        ports:
+            - "8080:8080"
+        depends_on: 
+            - mongo
+        networks:
+            - net
+        environment:
+            - PORT=8080 
+            - ENV=docker
+    frontend:
+        container_name: adminpro_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "4200:4200"
+        depends_on: 
+            - mongo
+            - backend
+        networks:
+            - net
+    mongo:
+        image: mongo
+        container_name: adminpro_mongo
+        networks:
+            - net
+        volumes:
+            - adminpro-volume:/data/db
+
+volumes:
+    adminpro-volume:
+
+networks:
+    net:

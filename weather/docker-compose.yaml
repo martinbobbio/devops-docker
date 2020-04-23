@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    backend:
+        container_name: weather_backend
+        build:
+            context: .
+            dockerfile: backend.dockerfile
+        ports:
+            - "8084:8084"
+        networks:
+            - net
+        environment:
+            - PORT=8084
+            - ENV=docker
+    frontend:
+        container_name: weather_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "3001:3001"
+        depends_on: 
+            - backend
+        networks:
+            - net
+
+volumes:
+    weather-volume:
+
+networks:
+    net:

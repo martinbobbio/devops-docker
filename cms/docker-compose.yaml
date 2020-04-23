@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    backend:
+        container_name: cms_backend
+        build:
+            context: .
+            dockerfile: backend.dockerfile
+        ports:
+            - "8083:8083"
+        depends_on: 
+            - mongo
+        networks:
+            - net
+        environment:
+            - PORT=8083 
+            - ENV=docker
+    frontend:
+        container_name: cms_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "3000:3000"
+        depends_on: 
+            - backend
+        networks:
+            - net
+    mongo:
+        image: mongo
+        container_name: cms_mongo
+        networks:
+            - net
+        volumes:
+            - cms-volume:/data/db
+
+volumes:
+    cms-volume:
+
+networks:
+    net:

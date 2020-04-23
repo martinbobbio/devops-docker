@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+    mysql:
+        image: mysql
+        container_name: molinotenis_mysql
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 1234
+        networks:
+            - net
+    backend:
+        container_name: molinotenis_backend
+        build:
+            context: .
+            dockerfile: backend.dockerfile
+        depends_on: 
+            - mysql
+        ports:
+            - "8081:8081"
+        networks:
+            - net
+    frontend:
+        container_name: molinotenis_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "4201:4201"
+        depends_on: 
+            - backend
+        networks:
+            - net
+    app:
+        container_name: molinotenis_app
+        build:
+            context: .
+            dockerfile: app.dockerfile
+        ports:
+            - "8100:8100"
+        depends_on: 
+            - backend
+        networks:
+            - net
+
+networks:
+    net:
+
+# After docker compose up -d run this for create database and superadmin.
+# docker exec -it molinotenis_backend php app/console doctrine:database:create && docker exec -it molinotenis_backend php app/console doctrine:schema:update --force && docker exec -it molinotenis_backend php app/console fos:user:create martinbobbio1@gmail.com martinbobbio1@gmail.com 1234 --super-admin

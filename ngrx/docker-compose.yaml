@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    frontend:
+        container_name: ngrx_frontend
+        build:
+            context: .
+            dockerfile: frontend.dockerfile
+        ports:
+            - "4204:4204"
+        networks:
+            - net
+
+networks:
+    net:
