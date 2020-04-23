@@ -11,6 +11,5 @@
 
 ## Contenedores
 
- Markup : * Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
+* Item 1
+  * Item 2
