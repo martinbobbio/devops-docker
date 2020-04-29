@@ -24,7 +24,7 @@ Gesti√≥n de contenedores docker con los principales proyectos y la implementaci√
   * Frontend (Angular)
   * Backend (NodeJS)
   * Base de datos (Mongo)
-* Cms
+* Cms (GraphQL)
   * Frontend (ReactJS)
   * Backend (NodeJS)
   * Base de datos (Mongo)
@@ -32,7 +32,7 @@ Gesti√≥n de contenedores docker con los principales proyectos y la implementaci√
   * Frontend (ReactJS)
   * Backend (NodeJS)
   * Base de datos (Mongo)
-* Vue
+* Opera
   * Frontend (VueJS)
   * Base de datos (Firebase)
 * Ngrx
