@@ -33,8 +33,8 @@ Gesti√≥n de contenedores docker con los principales proyectos y la implementaci√
   * Backend (NodeJS)
   * Base de datos (Mongo)
 * Opera
-  * Frontend (VueJS)
+  * Frontend (VueJS, Vuex)
   * Base de datos (Firebase)
 * Ngrx
-  * Frontend (Angular)
+  * Frontend (Angular, Ngrx)
   * Base de datos (Firebase)
