@@ -24,12 +24,12 @@ Gesti√≥n de contenedores docker con los principales proyectos y la implementaci√
   * Frontend (Angular)
   * Backend (NodeJS)
   * Base de datos (Mongo)
-* Cms (GraphQL)
-  * Frontend (ReactJS)
-  * Backend (NodeJS)
+* Cms
+  * Frontend (ReactJS, GraphQL)
+  * Backend (NodeJS, GraphQL)
   * Base de datos (Mongo)
 * Weather
-  * Frontend (ReactJS)
+  * Frontend (ReactJS, Redux)
   * Backend (NodeJS)
   * Base de datos (Mongo)
 * Opera
